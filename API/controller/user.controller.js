@@ -1,17 +1,18 @@
 const USER_MODEL = require("../models/user.models")
 
 const createUser = async (req, res) => {
-    const { userName, email, phone, password } = req.body
+    const { userName, email, phone, password,dsplayname,} = req.body
     try {
         const user = await USER_MODEL.create({
             userName: userName,
             email: email,
             password: password,
             phone: phone,
+            dsplayname:dsplayname,
         })
         res.status(200).json({
             success: true,
-            massage: "user created",
+            message: "user created",
             data: user,
         })
     }
@@ -19,7 +20,7 @@ const createUser = async (req, res) => {
         res.status(400).json({
             success: false,
             error: error.name,
-            massage: error.massage
+            message: error.message
         })
 
     }
@@ -135,5 +136,6 @@ module.exports = {
     FindUser,
     deleteUser,
     Login,
-    UpdateUser
+    UpdateUser,
+    editUser
 }

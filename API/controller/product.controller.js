@@ -3,13 +3,14 @@
 const PRODUCT_MODEL = require("../models/product.model")
 
 const createproducts = async (req, res) => {
-    const { productsName, email, phone, password } = req.body
+    const { productsName, email, phone, password,dsplayname } = req.body
     try {
         const products = await PRODUCT_MODEL.create({
             productsName: productsName,
             email: email,
             password: password,
             phone: phone,
+            dsplayname:dsplayname,
         })
         res.status(200).json({
             success: true,
