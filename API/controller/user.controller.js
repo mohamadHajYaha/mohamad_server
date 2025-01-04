@@ -71,19 +71,20 @@ const Login = async (req,res) =>{
     const { phone,password } = req.body
     try{
         const users = await USER_MODEL.findOne({
-            phone: phone })
-
+            phone: phone ,
+            password: password,           })
+        
         res.status(200).json({
-            success: true,
+            success: !!users,
             massage: "correct login ",
             data: users,
         })
     }
     catch(error) {
         res.status(400).json({
-            success: "phone or password not correct",
+            success: false,
             error: error.name,
-            massage: error.massage
+            message: error.message
         })
     }
 }
