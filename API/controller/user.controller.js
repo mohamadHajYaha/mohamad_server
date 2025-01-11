@@ -7,8 +7,7 @@ const createUser = async (req, res) => {
             userName: userName,
             email: email,
             password: password,
-            phone: phone,
-            dsplayname:dsplayname,
+            phone: phone, 
         })
         res.status(200).json({
             success: true,
