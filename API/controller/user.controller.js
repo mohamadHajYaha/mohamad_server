@@ -67,10 +67,10 @@ const deleteUser = async (req,res) =>{
 
 
 const Login = async (req,res) =>{
-    const { phone,password } = req.body
+    const { userName,password } = req.body
     try{
         const users = await USER_MODEL.findOne({
-            phone: phone ,
+            userName: userName ,
             password: password,           })
         
         res.status(200).json({
