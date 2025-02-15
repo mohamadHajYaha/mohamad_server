@@ -8,7 +8,7 @@ const productSchema = new Schema({
         type: String,
 
     },
-    productName:{
+    name:{
         type: String,
       required: true,
       split: " ",
@@ -18,7 +18,7 @@ const productSchema = new Schema({
     type: Number,
     split: " ",
     },
-    quantity:{
+    Quantity:{
         required:true,
         type:String,
         split: " ",
