@@ -69,6 +69,37 @@ const deleteproducts = async (req, res) => {
 }
 
 
+const Add_Product = async (req, res) => {
+    try {
+        const { name, img, price } = req.body
+
+        if(!name || !img || !price) {
+            return res.status(400).json({
+                success: false,
+                massage: "Please provide all details"
+            })
+        }
+
+        const Product = await PRODUCT_MODEL.create({
+            name: name,
+            img: img,
+            price: price
+        })
+        res.status(200).json({
+            success: true,
+            massage: "Product Added",
+            data: Product,
+        })
+    }catch(err) {
+        res.status(400).json({
+            success: false,
+            error: err.name,
+            massage: err.massage
+        })
+    }
+}
+
+
 
 
 module.exports = {
