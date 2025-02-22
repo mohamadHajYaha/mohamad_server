@@ -98,7 +98,22 @@ const Add_Product = async (req, res) => {
         })
     }
 }
-
+const GetAllProducts = async (req, res) => {
+    try {
+        const products = await PRODUCT_MODEL.find()
+        res.status(200).json({
+            success: true,
+            massage: "All products",
+            data: products,
+        })
+    }catch(err) {
+        res.status(400).json({
+            success: false,
+            error: err,
+            massage: err.message
+        })
+    }
+}
 
 
 
@@ -107,4 +122,5 @@ module.exports = {
     Findproducts,
     deleteproducts,
     Add_Product,
+    GetAllProducts,
 }
