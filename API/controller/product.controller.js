@@ -93,8 +93,8 @@ const Add_Product = async (req, res) => {
     }catch(err) {
         res.status(400).json({
             success: false,
-            error: err.name,
-            massage: err.massage
+            error: err,
+            massage: err.message
         })
     }
 }
@@ -105,5 +105,6 @@ const Add_Product = async (req, res) => {
 module.exports = {
     createproducts,
     Findproducts,
-    deleteproducts
+    deleteproducts,
+    Add_Product,
 }

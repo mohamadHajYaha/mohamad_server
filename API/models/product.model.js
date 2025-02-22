@@ -18,7 +18,7 @@ const productSchema = new Schema({
         split: " ",
     },
     Quantity: {
-        required: true,
+        // required: true,
         type: String,
         split: " ",
 

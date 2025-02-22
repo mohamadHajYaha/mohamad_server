@@ -17,6 +17,10 @@ mongoose.connection.on("connected", () => {
   console.log("mongo connected✔");
 });
 
+app.post("/isLive", (req, res) => {
+  res.status(200).json({live: true})
+})
+
 
 
 app.post("/",(req,res)=>{
