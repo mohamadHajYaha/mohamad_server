@@ -1,7 +1,7 @@
 const USER_MODEL = require("../models/user.models")
 
 const createUser = async (req, res) => {
-    const { userName, email, phone, password,dsplayname,} = req.body
+    const { userName, email, phone, password,} = req.body
     try {
         const user = await USER_MODEL.create({
             userName: userName,
