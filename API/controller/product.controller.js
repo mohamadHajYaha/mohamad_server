@@ -3,13 +3,14 @@
 const PRODUCT_MODEL = require("../models/product.model")
 
 const createproducts = async (req, res) => {
-    const { price, name, Quantity, img } = req.body
+    const { price, name, Quantity, img, type } = req.body
     try {
         const products = await PRODUCT_MODEL.create({
             price: price,
             name: name,
             Quantity: Quantity,
-            img: img
+            img: img,
+            type: type
         })
         res.status(200).json({
             success: true,
@@ -73,7 +74,7 @@ const Add_Product = async (req, res) => {
     try {
         const { name, img, price } = req.body
 
-        if(!name || !img || !price) {
+        if (!name || !img || !price) {
             return res.status(400).json({
                 success: false,
                 massage: "Please provide all details"
@@ -90,7 +91,7 @@ const Add_Product = async (req, res) => {
             massage: "Product Added",
             data: Product,
         })
-    }catch(err) {
+    } catch (err) {
         res.status(400).json({
             success: false,
             error: err,
@@ -106,7 +107,7 @@ const GetAllProducts = async (req, res) => {
             massage: "All products",
             data: products,
         })
-    }catch(err) {
+    } catch (err) {
         res.status(400).json({
             success: false,
             error: err,

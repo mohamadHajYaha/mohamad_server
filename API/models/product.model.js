@@ -22,8 +22,11 @@ const productSchema = new Schema({
         type: String,
         split: " ",
 
+    },
+    type: {
+        type: String,
+        split: " ",
     }
-
 })
 
 
